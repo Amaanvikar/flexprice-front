@@ -13,6 +13,9 @@ import {
 	writeFiltersAndSortsToSession,
 } from '@/utils/filterPersistence';
 
+/** Default debounce time (ms) for filter/sort changes when not specified. */
+export const DEFAULT_DEBOUNCE_MS = 300;
+
 interface Props {
 	initialFilters?: FilterCondition[];
 	initialSorts?: SortOption[];
@@ -64,7 +67,7 @@ function getInitialFiltersAndSorts(
 const useFilterSortingWithPersistence = ({
 	initialFilters = [],
 	initialSorts = [],
-	debounceTime = 300,
+	debounceTime = DEFAULT_DEBOUNCE_MS,
 	onFilterChange,
 	onSortChange,
 	persistenceKey,

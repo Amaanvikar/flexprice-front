@@ -3,7 +3,7 @@ import { QueryBuilder } from '@/components/molecules';
 import { ColumnData } from '@/components/molecules/Table';
 import usePagination from '@/hooks/usePagination';
 import { usePaginationReset } from '@/hooks/usePaginationReset';
-import useFilterSortingWithPersistence from '@/hooks/useFilterSortingWithPersistence';
+import useFilterSortingWithPersistence, { DEFAULT_DEBOUNCE_MS } from '@/hooks/useFilterSortingWithPersistence';
 import { useQueryWithEmptyState } from '@/hooks/useQueryWithEmptyState';
 import { FilterField, FilterCondition, SortOption } from '@/types/common/QueryBuilder';
 import LoadingState from './LoadingState';
@@ -273,7 +273,7 @@ const QueryableDataArea = <T = any,>({
 	const { filters, sorts, setFilters, setSorts, sanitizedFilters, sanitizedSorts } = useFilterSortingWithPersistence({
 		initialFilters: queryConfig.initialFilters ?? [],
 		initialSorts: queryConfig.initialSorts ?? [],
-		debounceTime: queryConfig.debounceTime ?? 300,
+		debounceTime: queryConfig.debounceTime ?? DEFAULT_DEBOUNCE_MS,
 		persistenceKey: queryConfig.filterPersistenceKey ?? dataConfig.queryKey,
 	});
 

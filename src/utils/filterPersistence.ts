@@ -69,19 +69,23 @@ export function deserializeSorts(value: string | null): SortOption[] | null {
 	}
 }
 
+const FILTERS_PARAM_SUFFIX = '_filters';
+const SORTS_PARAM_SUFFIX = '_sorts';
+const FILTER_STATE_SESSION_PREFIX = 'filter_state_';
+
 /** URL param key for filters (key = list identifier, e.g. fetchCustomers) */
 export function getFiltersParamKey(key: string): string {
-	return `${key}_filters`;
+	return `${key}${FILTERS_PARAM_SUFFIX}`;
 }
 
 /** URL param key for sorts */
 export function getSortsParamKey(key: string): string {
-	return `${key}_sorts`;
+	return `${key}${SORTS_PARAM_SUFFIX}`;
 }
 
 /** SessionStorage key for a list's filter/sort state (survives tab switch, cleared when tab closes) */
 export function getFilterStateSessionKey(key: string): string {
-	return `filter_state_${key}`;
+	return `${FILTER_STATE_SESSION_PREFIX}${key}`;
 }
 
 const EMPTY_FILTER_STATE: { filters: FilterCondition[] | null; sorts: SortOption[] | null } = {
