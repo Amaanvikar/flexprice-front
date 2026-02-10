@@ -20,7 +20,7 @@ const BreadCrumbsSearchTrigger: React.FC = () => {
 			onClick={handleClick}
 			variant='outline'
 			size='sm'
-			className='flex w-full min-w-[180px] sm:min-w-[220px] items-center justify-between gap-2 border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-200 [&>div]:w-full [&>div]:min-w-0'
+			className='outline-none text-sm flex w-full min-w-[180px] sm:min-w-[220px] items-center justify-between gap-2 [&>div]:w-full [&>div]:min-w-0'
 			aria-label='Search or run a command (command symbol + k)'>
 			<Search className='h-4 w-4 shrink-0 text-gray-400 order-first' />
 			<span className='flex-1 min-w-0 truncate text-left text-muted-foreground order-2'>Search...</span>
